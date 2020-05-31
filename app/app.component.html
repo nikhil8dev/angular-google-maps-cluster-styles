@@ -1,0 +1,28 @@
+<h1>Angular Google Maps (AGM) Demo</h1>
+<p><a href="https://angular-maps.com/" target="_blank">Official Website</a></p>
+
+<agm-map 
+  [latitude]="lat"
+  [longitude]="lng"
+  [zoom]="zoom"
+  [disableDefaultUI]="false"
+  [zoomControl]="true"
+  [styles]= "styles" >
+<agm-marker-cluster imagePath="https://raw.githubusercontent.com/googlearchive/js-marker-clusterer/gh-pages/images/m">
+  <agm-marker 
+      *ngFor="let m of markers; let i = index"
+      [latitude]="m.lat"
+      [longitude]="m.lng"
+      [label]="m.label"
+      [markerDraggable]="m.draggable">
+      
+    <agm-snazzy-info-window [isOpen]="true">
+      <ng-template>
+      <strong>InfoWindow content</strong>
+      </ng-template>
+    </agm-snazzy-info-window>
+    
+  </agm-marker>
+</agm-marker-cluster>  
+
+</agm-map>
